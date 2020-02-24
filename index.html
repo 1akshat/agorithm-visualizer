@@ -5,47 +5,46 @@
     <link rel="stylesheet" type="text/css" href="static/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 </head>
 
 <body>
+	<center>
 	<div class="wrapper">
-		<div class="row">
-				<div class="col-md-4">
-					<h2>Filters</h2>
-					<br/><br/>
-					<form class="">
-					<div class="form-group row">
-			            <label class="col-sm-2 col-form-label">Algo</label>
-			            <select id="algo-options" class="col-sm-10 form-control" onchange="switchAlgorithm()">
-			            	<option value="selection">Selection Sort</option>
-					        <option value="bubble">Bubble Sort</option>
-					        <option value="linear">Linear Search</option>
-					        <option value="binary">Binary Search</option>
-				      	</select>
-				    </div>
+		<div class="col-md-8">
+			<h2>Filters</h2>
+			<br/><br/>
+			<form>
+			<div class="form-group row">
+	            <label class="col-sm-4 col-form-label">Algorithm</label>
+	            <select id="algo-options" class="col-sm-8 form-control" onchange="switchAlgorithm()">
+	            	<option value="selection">Selection Sort</option>
+			        <option value="bubble">Bubble Sort</option>
+		      	</select>
+		    </div>
+		    <div class="form-group row">
+	            <label class="col-sm-4 col-form-label">Array Size</label>
+	            <input type="number" class="col-sm-8 form-control" id="array-size" onchange="sizeChange()" value="10">
+		    </div>
 
-				    <div class="form-group row">
-			            <label class="col-sm-2 col-form-label">Array Size</label>
-			            <input type="number" class="col-sm-10 form-control" id="array-size" onchange="sizeChange()" value="10">
-				    </div>
+		    <div class="form-group row">
+		    	<label class="col-sm-4 col-form-label">Animation Speed <div id="result">(<b></b>)</div></label>
+        		<input type="range" class="custom-range col-sm-8 form-control" id="customRange" onchange="animationSpeed(this.value)" min="10" max="60">	
+		    </div>
+		    
+		    <div class="form-group row" style="display: block; left: auto; right: auto;">
+	            <button type="button" class="btn btn-secondary" onclick="visualize()" id="start_button">Animate</button>
+		    </div>
+		    </center>
+		</form>
+    	</div>
 
-				    <div class="form-group row">
-			            <label class="col-sm-2 col-form-label">Search Element</label>
-			            <input type="number" class="col-sm-10 form-control" id="search-box" disabled>
-				    </div>
-
-				    <div class="form-group row">
-			            <button type="button" class="btn btn-secondary" onclick="visualize()" id="start_button">Animate</button>
-				    </div>
-				</form>
-		    	</div>
-
-
-				<div class="col-md-8">
-					<div class="animation" id="div"> </div>
-				</div>
+		<div class="col-md-8">
+			<div class="animation" id="animate"> </div>
 		</div>
     </div>
+    </center>
 
     
     <!-- <div  id="search-container"></div> -->
