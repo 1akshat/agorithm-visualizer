@@ -2,9 +2,10 @@ let div = document.getElementById('animate');
 
 let timeOutIdMap = new Map();
 
+var selectedAlgo = "selection";
+
 // DEFAULT ANIMATION SPEED
 var animation_speed = 35;
-
 
 window.onload = () => {
   createDivs()
@@ -231,8 +232,52 @@ const moveDivTop = (div1, div2, distance) => {
 }
 
 
+var bubble_sort_pseudo_code = "function sort(values) {\n\
+  var origValues = values.slice();\n\
+  var length = origValues.length - 1;\n\
+  do {\n\
+    var swapped = false;\n\
+    for(var i = 0; i < length; ++i) {\n\
+      if (origValues[i] > origValues[i+1]) {\n\
+        var temp = origValues[i];\n\
+        origValues[i] = origValues[i+1];\n\
+        origValues[i+1] = temp;\n\
+        swapped\n\ = true;\n\
+      }\n\
+    }\n\
+  }\n\
+  while(swapped === true);\n\
+  return origValues\n\
+}"
+
+
+var selection_sort_pseudo_code = "function selectionSort(items){\n\
+    var len = items.length,\n\
+        min;\n\
+    for (i=0; i < len; i++){\n\
+        min = i;\n\
+        for (j=i+1; j < len; j++){\n\
+            if (items[j] < items[min]){\n\
+                min = j;\n\
+            }\n\
+        }\n\
+        if (i != min){\n\
+            swap(items, i, min);\n\
+        }\n\
+    }\n\
+    return items;\n\
+}"
+
+
+document.getElementById("code").innerHTML = selection_sort_pseudo_code 
 const switchAlgorithm = () => {
   const selectedAlgo = document.getElementById('algo-options').value;
+  if(selectedAlgo == "bubble"){
+    document.getElementById("code").innerHTML = bubble_sort_pseudo_code
+  } else{
+    document.getElementById("code").innerHTML = selection_sort_pseudo_code
+  }
+  
   const searchElement = document.getElementById('search-box');
   const oldBlock = document.getElementsByClassName('searchElement')[0];
   const arraySize = document.getElementById('array-size').value;

@@ -22,6 +22,7 @@ body {
 .animation {
     margin-left: 50%;
     position: relative;
+    display: flex;
     padding: 16px;
     display: -webkit-inline-box;
     justify-content: center;
